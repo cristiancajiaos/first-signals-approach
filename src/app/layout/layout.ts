@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, computed, OnInit, signal } from '@angular/core';
 
 @Component({
   selector: 'app-layout',
@@ -9,6 +9,9 @@ import { Component, OnInit, signal } from '@angular/core';
 export class Layout implements OnInit {
 
   public count = signal(0);
+  derivedCounter = computed(() => {
+    return this.count() * 10;
+  });
 
   ngOnInit(): void {
   }
